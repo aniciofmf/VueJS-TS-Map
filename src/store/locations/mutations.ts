@@ -2,8 +2,8 @@ import { MutationTree } from "vuex";
 import { ILocState } from "./state";
 
 const mutation: MutationTree<ILocState> = {
-	mutation() {
-		//
+	setLocation(state: ILocState, coords: [lng: number, lat: number]) {
+		state.usrLocation = coords;
 	},
 };
 

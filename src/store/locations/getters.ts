@@ -3,7 +3,9 @@ import { ILocState } from "./state";
 import { IState } from "../index";
 
 const getters: GetterTree<ILocState, IState> = {
-	getter() {},
+	userLocation(state) {
+		return state.usrLocation !== null;
+	},
 };
 
 export default getters;
