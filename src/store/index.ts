@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 
-import skeletonModule from "./template";
-import { IStateInterface } from "./template/state";
+import skeletonModule from "./skeletonTemplate";
+import { IStateInterface } from "./skeletonTemplate/state";
 
 export interface IState {
 	something: any;
