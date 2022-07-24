@@ -1,14 +1,14 @@
 import { createStore } from "vuex";
 
-import skeletonModule from "./skeletonTemplate";
-import { IStateInterface } from "./skeletonTemplate/state";
+import locationModule from "./locations";
+import { ILocState } from "./locations/state";
 
 export interface IState {
-	something: any;
+	locations: ILocState;
 }
 
 export default createStore<IState>({
 	modules: {
-		skeletonM: {},
+		locations: locationModule,
 	},
 });

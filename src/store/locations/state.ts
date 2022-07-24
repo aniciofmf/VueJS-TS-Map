@@ -1,10 +1,12 @@
-export interface IStateInterface {
-	prop: boolean;
+export interface ILocState {
+	loading: boolean;
+	usrLocation?: [number | null, number | null];
 }
 
-function state(): IStateInterface {
+function state(): ILocState {
 	return {
-		prop: true,
+		loading: true,
+		usrLocation: [null, null],
 	};
 }
 

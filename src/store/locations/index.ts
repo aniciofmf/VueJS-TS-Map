@@ -1,12 +1,12 @@
 import { Module } from "vuex";
 import { IState } from "../index";
 
-import state, { IStateInterface } from "./state";
+import state, { ILocState } from "./state";
 import actions from "./actions";
 import getters from "./getters";
 import mutations from "./mutations";
 
-const skeletonModule: Module<IStateInterface, IState> = {
+const locationModule: Module<ILocState, IState> = {
 	namespaced: true,
 	actions,
 	getters,
@@ -14,4 +14,4 @@ const skeletonModule: Module<IStateInterface, IState> = {
 	state,
 };
 
-export default skeletonModule;
+export default locationModule;

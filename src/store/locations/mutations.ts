@@ -1,7 +1,7 @@
 import { MutationTree } from "vuex";
-import { IStateInterface } from "./state";
+import { ILocState } from "./state";
 
-const mutation: MutationTree<IStateInterface> = {
+const mutation: MutationTree<ILocState> = {
 	mutation() {
 		//
 	},

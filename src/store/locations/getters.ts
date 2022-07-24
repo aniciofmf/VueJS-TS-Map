@@ -1,8 +1,8 @@
 import { GetterTree } from "vuex";
-import { IStateInterface } from "./state";
+import { ILocState } from "./state";
 import { IState } from "../index";
 
-const getters: GetterTree<IStateInterface, IState> = {
+const getters: GetterTree<ILocState, IState> = {
 	getter() {},
 };
 

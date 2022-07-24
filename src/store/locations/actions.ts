@@ -1,8 +1,8 @@
 import { ActionTree } from "vuex";
-import { IStateInterface } from "./state";
+import { ILocState } from "./state";
 import { IState } from "../index";
 
-const actions: ActionTree<IStateInterface, IState> = {
+const actions: ActionTree<ILocState, IState> = {
 	action() {},
 };
 
