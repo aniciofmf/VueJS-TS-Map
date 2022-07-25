@@ -7,7 +7,7 @@
 			<p>Map is loading</p>
 		</div>
 	</div>
-	<div v-show="userLocationReady" class="container" ref="mapElement"></div>
+	<div v-show="userLocationReady" class="containerMap" ref="mapElement"></div>
 </template>
 
 <style scoped>
@@ -22,7 +22,7 @@
 	z-index: 9999;
 }
 
-.container {
+.containerMap {
 	position: fixed;
 	width: 100vw;
 	height: 100vh;
