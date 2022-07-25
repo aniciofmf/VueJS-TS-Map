@@ -5,7 +5,7 @@ import { IState } from "../index";
 const actions: ActionTree<ILocState, IState> = {
 	async getGeoLocation({ commit }) {
 		navigator.geolocation.getCurrentPosition(
-			({ coords }) => commit("setLocation", [coords.longitude, coords.latitude]),
+			({ coords }) => commit("setLocation", { lng: coords.longitude, lat: coords.latitude }),
 			(err) => {
 				console.log(err);
 			}

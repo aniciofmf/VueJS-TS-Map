@@ -4,11 +4,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useLocation } from "@/composables/useLocation";
 
 export default defineComponent({
 	name: "Home",
 	components: {},
-	setup() {},
+	setup() {
+		useLocation();
+	},
 });
 </script>
 
