@@ -1,1 +1,1 @@
-import { useLocation } from "./useLocation";
+export { useLocation } from "./useLocation";

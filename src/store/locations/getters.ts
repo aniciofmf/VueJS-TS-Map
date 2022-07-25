@@ -4,7 +4,7 @@ import { IState } from "../index";
 
 const getters: GetterTree<ILocState, IState> = {
 	userLocation(state) {
-		return state.usrLocation !== null;
+		return state.usrLocation !== undefined;
 	},
 };
 

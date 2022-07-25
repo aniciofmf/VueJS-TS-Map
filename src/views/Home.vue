@@ -1,27 +1,27 @@
 <template>
-	<img alt="Vue logo" src="../assets/logo.png" />
+	<Map />
+	<img alt="Vue logo" class="logo" src="../assets/logo.png" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useLocation } from "@/composables/useLocation";
+import { useLocation } from "@/composables";
+import Map from "@/components/map/Map.vue";
 
 export default defineComponent({
 	name: "Home",
-	components: {},
+	components: { Map },
 	setup() {
 		useLocation();
 	},
 });
 </script>
 
-<style>
-#app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-	margin-top: 60px;
+<style scoped>
+.logo {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 50px;
 }
 </style>

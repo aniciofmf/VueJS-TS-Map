@@ -1,6 +1,6 @@
 import { useStore } from "vuex";
 import { IState } from "@/store/";
-import { onMounted } from "vue";
+import { computed, onMounted } from "vue";
 
 export const useLocation = () => {
 	const store = useStore<IState>();
@@ -11,5 +11,9 @@ export const useLocation = () => {
 		}
 	});
 
-	return {};
+	return {
+		loading: computed(() => store.state.locations.loading),
+		userLocation: computed(() => store.state.locations.usrLocation),
+		userLocationReady: computed(() => store.getters["locations/userLocation"]),
+	};
 };
