@@ -13,12 +13,16 @@ export default defineComponent({
 
 			const map = new mapboxgl.Map({
 				container: mapElement.value!,
-				style: "mapbox://styles/mapbox/streets-v11",
+				style: "mapbox://styles/mapbox/light-v10",
 				center: userLocation.value,
-				zoom: 10,
+				zoom: 15,
 				projection: { name: "globe" },
 				pitchWithRotate: true,
 			});
+
+			const locationPopup = new mapboxgl.Popup().setLngLat(userLocation.value!).setHTML(`<h5>My Location</h5>`);
+
+			const locationMarker = new mapboxgl.Marker().setLngLat(userLocation.value!).setPopup(locationPopup).addTo(map);
 		};
 
 		onMounted(() => {

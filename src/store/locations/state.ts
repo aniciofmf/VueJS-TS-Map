@@ -1,6 +1,6 @@
 export interface ILocState {
 	loading: boolean;
-	usrLocation?: [number, number];
+	usrLocation?: [number, number] | undefined;
 }
 
 function state(): ILocState {
