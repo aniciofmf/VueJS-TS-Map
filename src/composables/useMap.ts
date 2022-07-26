@@ -9,5 +9,6 @@ export const useMap = () => {
 	return {
 		map: computed(() => store.state.map.map),
 		setMap: (map: mapboxgl.Map) => store.commit("map/setMap", map),
+		isMapReady: computed(() => store.getters["map/isMapReady"]),
 	};
 };
