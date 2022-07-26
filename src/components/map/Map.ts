@@ -1,4 +1,4 @@
-import { useLocation } from "@/composables";
+import { useLocation, useMap } from "@/composables";
 import { defineComponent, onMounted, ref, watch } from "vue";
 import mapboxgl from "mapbox-gl";
 
@@ -7,6 +7,7 @@ export default defineComponent({
 	setup() {
 		const mapElement = ref<HTMLDivElement>();
 		const { loading, userLocation, userLocationReady } = useLocation();
+		const { setMap } = useMap();
 
 		const loadMap = async () => {
 			await Promise.resolve();
@@ -15,14 +16,18 @@ export default defineComponent({
 				container: mapElement.value!,
 				style: "mapbox://styles/mapbox/light-v10",
 				center: userLocation.value,
-				zoom: 15,
+				zoom: 14,
 				projection: { name: "globe" },
 				pitchWithRotate: true,
 			});
 
-			const locationPopup = new mapboxgl.Popup().setLngLat(userLocation.value!).setHTML(`<h5>My Location</h5>`);
+			if (userLocation.value) {
+				const locationPopup = new mapboxgl.Popup().setLngLat(userLocation.value).setHTML(`<h5>My Location</h5>`);
 
-			const locationMarker = new mapboxgl.Marker().setLngLat(userLocation.value!).setPopup(locationPopup).addTo(map);
+				const locationMarker = new mapboxgl.Marker().setLngLat(userLocation.value).setPopup(locationPopup).addTo(map);
+			}
+
+			setMap(map);
 		};
 
 		onMounted(() => {
