@@ -10,10 +10,12 @@ export default defineComponent({
 		const { setMap } = useMap();
 
 		const loadMap = async () => {
+			if (!mapElement.value) return;
+
 			await Promise.resolve();
 
 			const map = new mapboxgl.Map({
-				container: mapElement.value!,
+				container: mapElement.value,
 				style: "mapbox://styles/mapbox/light-v10",
 				center: userLocation.value,
 				zoom: 14,
