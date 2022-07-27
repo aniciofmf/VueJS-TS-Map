@@ -15,5 +15,6 @@ export const useLocation = () => {
 		loading: computed(() => store.state.locations.loading),
 		userLocation: computed(() => store.state.locations.usrLocation),
 		userLocationReady: computed(() => store.getters["locations/userLocation"]),
+		searchPlaces: (query: string) => store.dispatch("locations/searchPlaces", query),
 	};
 };

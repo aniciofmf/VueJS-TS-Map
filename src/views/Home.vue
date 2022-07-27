@@ -1,8 +1,7 @@
 <template>
 	<Map />
+	<Search />
 	<LocationBtnVue />
-
-	<img alt="Vue logo" class="logo" src="../assets/logo.png" />
 </template>
 
 <script lang="ts">
@@ -10,10 +9,11 @@ import { defineComponent } from "vue";
 import { useLocation } from "@/composables";
 import Map from "@/components/map/Map.vue";
 import LocationBtnVue from "@/components/locbtn/LocationBtn.vue";
+import Search from "@/components/search/Search.vue";
 
 export default defineComponent({
 	name: "Home",
-	components: { Map, LocationBtnVue },
+	components: { Map, LocationBtnVue, Search },
 	setup() {
 		useLocation();
 	},

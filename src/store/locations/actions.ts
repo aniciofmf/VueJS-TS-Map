@@ -11,6 +11,8 @@ const actions: ActionTree<ILocState, IState> = {
 			}
 		);
 	},
+
+	async searchPlaces({ commit, state }, query: string) {},
 };
 
 export default actions;
