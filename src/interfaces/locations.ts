@@ -1,47 +1,47 @@
-export interface LocationResponse {
+export interface ILocationResponse {
 	type: string;
 	query: string[];
-	features: Feature[];
+	features: IFeature[];
 	attribution: string;
 }
 
-export interface Feature {
+export interface IFeature {
 	id: string;
 	type: string;
 	place_type: string[];
 	relevance: number;
-	properties: Properties;
+	properties: IProperties;
 	text_en: string;
-	language_en: Language;
+	language_en: ILanguage;
 	place_name_en: string;
 	text: string;
-	language: Language;
+	language: ILanguage;
 	place_name: string;
 	bbox: number[];
 	center: number[];
-	geometry: Geometry;
-	context: Context[];
+	geometry: IGeometry;
+	context: IContext[];
 }
 
-export interface Context {
+export interface IContext {
 	id: string;
 	wikidata: string;
 	text_en: string;
-	language_en: Language;
+	language_en: ILanguage;
 	text: string;
-	language: Language;
+	language: ILanguage;
 	short_code?: string;
 }
 
-export enum Language {
+export enum ILanguage {
 	En = "en",
 }
 
-export interface Geometry {
+export interface IGeometry {
 	type: string;
 	coordinates: number[];
 }
 
-export interface Properties {
+export interface IProperties {
 	wikidata: string;
 }
