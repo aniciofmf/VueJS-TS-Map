@@ -1,5 +1,5 @@
 <template>
-	<button v-if="isReady" @click="locationClick" class="btn btn-primary">Reset</button>
+	<button v-if="isReady" @click="locationClick" class="btn btn-primary">Go Back to My Location</button>
 </template>
 
 <script lang="ts">
@@ -7,7 +7,7 @@ import { computed, defineComponent } from "vue";
 import { useLocation, useMap } from "@/composables";
 
 export default defineComponent({
-	name: "Locationtn",
+	name: "LocationBtn",
 	setup() {
 		const { userLocation, userLocationReady } = useLocation();
 		const { map, isMapReady } = useMap();

@@ -16,8 +16,12 @@
 	z-index: 999;
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 	width: 250px;
-	border-radius: 5px;
+	border-radius: 10px;
 	overflow: hidden;
-	padding: 5px;
+	padding: 10px;
+}
+
+.form-control {
+	border-radius: 5px;
 }
 </style>

@@ -16,11 +16,11 @@
 		>
 			<h5>{{ place.text }}</h5>
 			<p>{{ place.place_name }}</p>
-			<div align="right">
+			<!--<div align="right">
 				<button :class="place.id === activePlace ? 'btn-outline-light' : 'btn-outline-primary'" class="btn btn-outline-primary btn-sm">
 					Visit Place
 				</button>
-			</div>
+			</div>-->
 		</li>
 	</ul>
 </template>
