@@ -1,14 +1,19 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watch } from "vue";
 import { useLocation } from "@/composables";
 import { IFeature } from "@/interfaces/locations";
-import { useMap } from "../../composables/useMap";
+import { useMap } from "@/composables/useMap";
 
 export default defineComponent({
 	name: "SearchResult",
 	setup() {
 		const { loadingPlaces, getPlaces } = useLocation();
-		const { map } = useMap();
+		const { map, setMarkersForPlace } = useMap();
 		const activePlace = ref("");
+
+		watch(getPlaces, (newPlace) => {
+			activePlace.value = "";
+			setMarkersForPlace(newPlace);
+		});
 
 		return {
 			loadingPlaces,
