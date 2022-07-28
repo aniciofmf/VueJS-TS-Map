@@ -23,6 +23,13 @@ const mutation: MutationTree<IMapState> = {
 
 			state.markers.push(marker);
 		}
+
+		if (state.map?.getLayer("RouteLineString")) {
+			state.map.removeLayer("RouteLineString");
+			state.map.removeSource("RouteLineString");
+			state.distance = undefined;
+			state.duration = undefined;
+		}
 	},
 
 	setRouteLine(state, coords: number[][]) {
