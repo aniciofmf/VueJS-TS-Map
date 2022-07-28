@@ -9,12 +9,12 @@ export const useMap = () => {
 	const store = useStore<IState>();
 
 	return {
-		map: computed(() => store.state.map.map),
 		distance: computed(() => store.state.map.distance),
 		duration: computed(() => store.state.map.duration),
-		setMap: (map: mapboxgl.Map) => store.commit("map/setMap", map),
-		isMapReady: computed(() => store.getters["map/isMapReady"]),
-		setMarkersForPlace: (places: IFeature[]) => store.commit("map/setMarkersForPlace", places),
 		getRoutesPoints: (start: LngLat, end: LngLat) => store.dispatch("map/getRoutesPoints", { start, end }),
+		isMapReady: computed(() => store.getters["map/isMapReady"]),
+		map: computed(() => store.state.map.map),
+		setMap: (map: mapboxgl.Map) => store.commit("map/setMap", map),
+		setMarkersForPlace: (places: IFeature[]) => store.commit("map/setMarkersForPlace", places),
 	};
 };
