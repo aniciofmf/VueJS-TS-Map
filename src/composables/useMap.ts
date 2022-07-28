@@ -10,6 +10,8 @@ export const useMap = () => {
 
 	return {
 		map: computed(() => store.state.map.map),
+		distance: computed(() => store.state.map.distance),
+		duration: computed(() => store.state.map.duration),
 		setMap: (map: mapboxgl.Map) => store.commit("map/setMap", map),
 		isMapReady: computed(() => store.getters["map/isMapReady"]),
 		setMarkersForPlace: (places: IFeature[]) => store.commit("map/setMarkersForPlace", places),
