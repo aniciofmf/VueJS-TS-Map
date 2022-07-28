@@ -24,6 +24,59 @@ const mutation: MutationTree<IMapState> = {
 			state.markers.push(marker);
 		}
 	},
+
+	setRouteLine(state, coords: number[][]) {
+		const start = coords[0];
+		const end = coords[coords.length - 1];
+		const bounds = new mapboxgl.LngLatBounds([start[0], start[1]], [start[0], start[1]]);
+
+		for (const coord of coords) {
+			const newCoord: [number, number] = [coord[0], coord[1]];
+			bounds.extend(newCoord);
+		}
+
+		state.map?.fitBounds(bounds, {
+			padding: 200,
+		});
+
+		const sData: mapboxgl.AnySourceData = {
+			type: "geojson",
+			data: {
+				type: "FeatureCollection",
+				features: [
+					{
+						type: "Feature",
+						properties: {},
+						geometry: {
+							type: "LineString",
+							coordinates: coords,
+						},
+					},
+				],
+			},
+		};
+
+		if (state.map?.getLayer("RouteLineString")) {
+			state.map.removeLayer("RouteLineString");
+			state.map.removeSource("RouteLineString");
+		}
+
+		state.map?.addSource("RouteLineString", sData);
+
+		state.map?.addLayer({
+			id: "RouteLineString",
+			type: "line",
+			source: "RouteLineString",
+			layout: {
+				"line-cap": "round",
+				"line-join": "round",
+			},
+			paint: {
+				"line-color": "green",
+				"line-width": 3,
+			},
+		});
+	},
 };
 
 export default mutation;
