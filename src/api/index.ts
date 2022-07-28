@@ -1,2 +1,2 @@
-import searchApi from "./search";
-import directionApi from "./direction";
+export { default as searchApi } from "./search";
+export { default as directionApi } from "./direction";

@@ -1,4 +1,4 @@
-export interface ITopLevel {
+export interface IDirectionsResponse {
 	routes: IRoute[];
 	waypoints: IWaypoint[];
 	code: string;

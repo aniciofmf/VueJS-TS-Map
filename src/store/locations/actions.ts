@@ -1,7 +1,7 @@
 import { ActionTree } from "vuex";
 import { ILocState } from "./state";
 import { IState } from "../index";
-import searchApi from "@/api/search";
+import { searchApi } from "@/api";
 import { ILocationResponse, IFeature } from "@/interfaces/locations";
 
 const actions: ActionTree<ILocState, IState> = {

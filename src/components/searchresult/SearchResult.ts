@@ -6,8 +6,8 @@ import { useMap } from "@/composables/useMap";
 export default defineComponent({
 	name: "SearchResult",
 	setup() {
-		const { loadingPlaces, getPlaces } = useLocation();
-		const { map, setMarkersForPlace } = useMap();
+		const { loadingPlaces, getPlaces, userLocation } = useLocation();
+		const { map, setMarkersForPlace, getRoutesPoints } = useMap();
 		const activePlace = ref("");
 
 		watch(getPlaces, (newPlace) => {
@@ -27,6 +27,18 @@ export default defineComponent({
 					center: [lng, lat],
 					zoom: 14,
 				});
+			},
+
+			getRoutes: (place: IFeature) => {
+				if (!userLocation.value) return;
+
+				const [lng, lat] = place.center;
+				const [uslng, uslat] = userLocation.value;
+
+				const start: [number, number] = [uslng, uslat];
+				const end: [number, number] = [lng, lat];
+
+				getRoutesPoints(start, end);
 			},
 		};
 	},
