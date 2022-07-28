@@ -11,6 +11,7 @@ export default defineComponent({
 		const debounceVal = ref("");
 		const debounceTimer = ref();
 		const { searchPlaces } = useLocation();
+
 		return {
 			searchTerm: computed({
 				get() {
